@@ -31,6 +31,12 @@
         - AppraisalTool
         - JawsOfLife
         - GPS
+        - RemoteSignaller
+        - AnomalyScanner
+        - AnomalyLocator
+        - WeaponPistolCHIMP
+        - NodeScanner
+        - XenoArtifact
       components:
         - SprayPainter
         - NetworkConfigurator
