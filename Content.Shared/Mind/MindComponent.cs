@@ -29,6 +29,9 @@ namespace Content.Shared.Mind
         [DataField, AutoNetworkedField]
         public List<EntityUid> Objectives = new();
 
+        [DataField, AutoNetworkedField]
+        public List<EntityUid> SpecialObjectives = new();
+
         /// <summary>
         ///     The session ID of the player owning this mind.
         /// </summary>

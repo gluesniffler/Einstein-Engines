@@ -103,3 +103,14 @@
   id: BaseSurviveObjective
   components:
   - type: SurviveCondition
+
+# doesn't require anything of the player - provides prompts for roleplay/gimmicks
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseRoleplayObjective
+  components:
+  - type: RoleplayCondition
+  - type: Objective
+    # You dont need to go out of your way to do it, and its a 10% appearance, so it has a difficulty of 0!
+    difficulty: 0.0

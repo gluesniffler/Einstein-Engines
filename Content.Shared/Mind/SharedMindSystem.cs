@@ -339,6 +339,17 @@ public abstract class SharedMindSystem : EntitySystem
     }
 
     /// <summary>
+    /// Adds a special roleplay objective to the mind, be it natural or from an admeme
+    /// </summary>
+    public void AddObjective(EntityUid mindId, MindComponent mind, EntityUid objective, Boolean special, Boolean admeme)
+    {
+        var title = Name(objective);
+        var assignedString = admeme ? "by random chance" : "by an admin";
+        _adminLogger.Add(LogType.Mind, LogImpact.Low, $"Objective {objective} ({title}) added to mind of {MindOwnerLoggingString(mind)} {assignedString}");
+        mind.Objectives.Add(objective);
+    }
+
+    /// <summary>
     /// Removes an objective from this mind.
     /// </summary>
     /// <returns>Returns true if the removal succeeded.</returns>

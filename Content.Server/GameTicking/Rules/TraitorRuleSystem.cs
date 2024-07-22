@@ -217,6 +217,14 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 difficulty += adding;
                 Log.Debug($"Added objective {ToPrettyString(objective):objective} with {adding} difficulty");
             }
+            // Maybe turn it into a CVAR?
+            // ADD A LINE HERE TO ROLL A 10% FOR A SPECIAL ROLEPLAY OBJECTIVE
+            if (_random.Prob(0.10f)) {
+                Logger.Debug("Triggered the random!");
+            }
+
+            //_mindSystem.AddObjective(mindId, mind, specialObjective.Value, true, false);
+            // KEEP IN MIND IT SHOULD BE A CONTAINER TOO AS ADMINS MAY WANT TO GIVE MULTIPLE IN ADMEMES
         }
 
         return true;
