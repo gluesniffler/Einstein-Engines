@@ -50,7 +50,7 @@
       - id: ClothingMaskGasSecurity
       - id: EmergencyOxygenTankFilled
       - id: SpaceMedipen
-      - id: EmergencyMedipen
+      - id: SecurityCombatMedipen
       - id: Flare
       - id: FoodPSB # Nyanotrasen - Replace Tinned Meat with PSB
       - id: DrinkWaterBottleFull

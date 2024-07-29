@@ -411,6 +411,41 @@
     tags: []
 
 - type: entity
+  name: security combat medipen
+  parent: ChemicalMedipen
+  id: SecurityCombatMedipen
+  description: A standard issue, single-use medipen containing chemicals that regenerate most types of damage.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: secpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: secpen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 25
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 20
+        - ReagentId: TranexamicAcid
+          Quantity: 5
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 30
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags: []
+
+
+- type: entity
   name: pen
   suffix: Hypopen
   parent: Pen # It is just like normal pen, isn't it?
