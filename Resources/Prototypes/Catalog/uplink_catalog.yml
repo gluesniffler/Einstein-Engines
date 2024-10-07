@@ -610,12 +610,12 @@
   cost:
     Telecrystal: 20
   categories:
-  - UplinkAllies
+    - UplinkAllies
   conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+        - NukeOpsUplink
 
 - type: listing
   id: UplinkMauler
@@ -626,12 +626,12 @@
   cost:
     Telecrystal: 30
   categories:
-  - UplinkAllies
+    - UplinkAllies
   conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+        - NukeOpsUplink
 
 - type: listing
   id: UplinkRadioJammer
