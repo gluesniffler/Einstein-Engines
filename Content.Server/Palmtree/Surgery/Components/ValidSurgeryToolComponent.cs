@@ -10,10 +10,6 @@ namespace Content.Server.Palmtree.Surgery
         [ViewVariables(VVAccess.ReadWrite)]
         public string kind = "scalpel";
 
-        [DataField("subKind")]
-        [ViewVariables(VVAccess.ReadWrite)]
-        public string subKind = "none"; // Used for implants
-
         [DataField("useDelay")]
         [ViewVariables(VVAccess.ReadWrite)]
         public float useDelay = 3.0f;
@@ -33,9 +29,5 @@ namespace Content.Server.Palmtree.Surgery
         [DataField("audioEnd")]
         [ViewVariables(VVAccess.ReadWrite)]
         public SoundSpecifier? audioEnd = null;
-
-        [DataField("consumedOnUse")] // Used for implants
-        [ViewVariables(VVAccess.ReadWrite)]
-        public bool consumedOnUse = false;
     }
 }
