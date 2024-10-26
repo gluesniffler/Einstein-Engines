@@ -4,8 +4,6 @@ using Content.Server.Palmtree.Surgery;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Mind;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Palmtree.Surgery;
@@ -71,7 +69,6 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
         [Dependency] private readonly BloodstreamSystem _blood = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
-        [Dependency] private readonly BlindableSystem _blindableSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -207,12 +204,6 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
                                 case "BioHeart":
                                     _rot.ReduceAccumulator((EntityUid) args.Target, TimeSpan.FromSeconds(2147483648));
                                     break;
-                                case "BioEyes":
-                                    if (TryComp(args.Target, out BlindableComponent? blindcomp))
-                                    {
-                                        _blindableSystem.AdjustEyeDamage(((EntityUid) args.Target, blindcomp), -blindcomp!.EyeDamage);
-                                    }
-                                    break;
                                 default: // Some simply don't have any behavior other than healing
                                     break;
                             }
@@ -258,7 +249,7 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
                             { "Poison", 10}
                         }
                     };
-                    _damageableSystem.TryChangeDamage(args.Target, infecting, true, origin: uid, partMultiplier: 0f);
+                    _damageableSystem.TryChangeDamage(args.Target, infecting, true, origin: uid);
                 }
             }
         }

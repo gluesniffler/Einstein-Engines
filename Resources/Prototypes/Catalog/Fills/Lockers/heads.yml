@@ -214,7 +214,6 @@
       - id: RubberStampPsychologist # DeltaV
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
-      - id: MedicalBiofabMachineBoard # Syndicate station - CMO gets spare boards for his machiners
       - id: BoxPDAMedical # Delta-V
       - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
       - id: CMOIDCard # Delta-V
