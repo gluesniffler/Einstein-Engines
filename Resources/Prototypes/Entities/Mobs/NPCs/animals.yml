@@ -1203,6 +1203,9 @@
   abstract: true
   components:
   - type: CombatMode
+  #- type: SurgeryTarget
+  #  canOperate: false
+  #- type: Targeting
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1228,6 +1231,8 @@
     interfaces:
     - key: enum.StrippingUiKey.Key
       type: StrippableBoundUserInterface
+    #- key: enum.SurgeryUIKey.Key
+    #  type: SurgeryBui
   - type: Sprite
     drawdepth: Mobs
     layers:
