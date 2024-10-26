@@ -10,6 +10,10 @@ namespace Content.Server.Palmtree.Surgery
         [ViewVariables(VVAccess.ReadWrite)]
         public string kind = "scalpel";
 
+        [DataField("infectionDamage")]
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float infectionDamage = 1.0f;
+
         [DataField("useDelay")]
         [ViewVariables(VVAccess.ReadWrite)]
         public float useDelay = 3.0f;

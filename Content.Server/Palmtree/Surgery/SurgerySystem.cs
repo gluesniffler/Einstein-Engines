@@ -133,7 +133,6 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
                             {
                                 _mind.TransferTo(targetMindId, uid, mind: targetMind);
                             }
-                            repeatableProcedure = true;
                         }
                         else
                         {
@@ -153,15 +152,14 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
                             }
                             else
                             {
-                                if (targetHasMind && !deviceHasMind)
+                                if (targetHasMind)
                                 {
                                     _mind.TransferTo(targetMindId, uid, mind: targetMind);
                                 }
-                                if (deviceHasMind && !targetHasMind)
+                                if (deviceHasMind)
                                 {
                                     _mind.TransferTo(deviceMindId, args.Target, mind: deviceMind);
                                 }
-                                repeatableProcedure = true;
                             }
                         }
                         else
