@@ -2,12 +2,11 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
 using Content.Shared.Atmos;
-using Content.Shared.Body.Part; // Shitmed
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Targeting; // Shitmed
+using Content.Shared.Targeting;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -37,8 +36,6 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly SpriteSystem _spriteSystem;
         private readonly IPrototypeManager _prototypes;
         private readonly IResourceCache _cache;
-
-        // Start-Shitmed
         public event Action<TargetBodyPart?, EntityUid>? OnBodyPartSelected;
         private EntityUid _spriteViewEntity;
 
@@ -47,8 +44,6 @@ namespace Content.Client.HealthAnalyzer.UI
 
         private readonly Dictionary<TargetBodyPart, TextureButton> _bodyPartControls;
         private EntityUid? _target;
-
-        // End-Shitmed
 
         public HealthAnalyzerWindow()
         {
@@ -59,7 +54,6 @@ namespace Content.Client.HealthAnalyzer.UI
             _spriteSystem = _entityManager.System<SpriteSystem>();
             _prototypes = dependencies.Resolve<IPrototypeManager>();
             _cache = dependencies.Resolve<IResourceCache>();
-            // Start-Shitmed
             _bodyPartControls = new Dictionary<TargetBodyPart, TextureButton>
             {
                 { TargetBodyPart.Head, HeadButton },
@@ -81,19 +75,15 @@ namespace Content.Client.HealthAnalyzer.UI
                 bodyPartButton.Value.OnPressed += _ => SetActiveBodyPart(bodyPartButton.Key, bodyPartButton.Value);
             }
             ReturnButton.OnPressed += _ => ResetBodyPart();
-            // End-Shitmed
         }
 
         public void SetActiveBodyPart(TargetBodyPart part, TextureButton button)
         {
-            if (_target == null)
+            if (_target is null)
                 return;
 
             // Bit of the ole shitcode until we have Groins in the prototypes.
-            if (part == TargetBodyPart.Groin)
-                OnBodyPartSelected?.Invoke(TargetBodyPart.Torso, _target.Value);
-            else
-                OnBodyPartSelected?.Invoke(part, _target.Value);
+            OnBodyPartSelected?.Invoke(part == TargetBodyPart.Groin ? TargetBodyPart.Torso : part, _target.Value);
         }
 
         public void ResetBodyPart()
@@ -112,7 +102,6 @@ namespace Content.Client.HealthAnalyzer.UI
 
         public void Populate(HealthAnalyzerScannedUserMessage msg)
         {
-            // Start-Shitmed
             _target = _entityManager.GetEntity(msg.TargetEntity);
             EntityUid? part = msg.Part != null ? _entityManager.GetEntity(msg.Part.Value) : null;
             var isPart = part != null;
@@ -183,7 +172,6 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Total Damage
 
-
             DamageLabel.Text = damageable.TotalDamage.ToString();
 
             // Alerts
@@ -227,7 +215,6 @@ namespace Content.Client.HealthAnalyzer.UI
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
 
             DrawDiagnosticGroups(damageSortedGroups, damagePerType);
-            // End-Shitmed
         }
 
         private static string GetStatus(MobState mobState)
@@ -329,7 +316,6 @@ namespace Content.Client.HealthAnalyzer.UI
             return rootContainer;
         }
 
-        // Start-Shitmed
         /// <summary>
         /// Sets up the Body Doll using Alert Entity to use in Health Analyzer.
         /// </summary>
@@ -363,6 +349,5 @@ namespace Content.Client.HealthAnalyzer.UI
             }
             return _spriteViewEntity;
         }
-        // End-Shitmed
     }
 }

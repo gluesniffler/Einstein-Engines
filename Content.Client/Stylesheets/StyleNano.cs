@@ -1621,7 +1621,6 @@ namespace Content.Client.Stylesheets
                     {
                         BackgroundColor = FancyTreeSelectedRowColor,
                     }),
-                // Shitmed Edit Start
                 Element<TextureButton>().Class("TargetDollButtonHead")
                     .Pseudo(TextureButton.StylePseudoClassHover)
                     .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Targeting/Doll/head_hover.png")),
@@ -1673,8 +1672,6 @@ namespace Content.Client.Stylesheets
                 Element<TextureButton>().Class("TargetDollButtonMouth")
                     .Pseudo(TextureButton.StylePseudoClassHover)
                     .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Targeting/Doll/mouth_hover.png")),
-                // Shitmed Edit End
-
             }).ToList());
         }
     }

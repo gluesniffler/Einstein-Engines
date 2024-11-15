@@ -125,10 +125,8 @@ public partial class SharedBodySystem
             //RemovePartMarkings(uid, component, bodyAppearance);
     }
 
-    private void HandleState(EntityUid uid, BodyPartAppearanceComponent component, ref AfterAutoHandleStateEvent args)
-    {
+    private void HandleState(EntityUid uid, BodyPartAppearanceComponent component, ref AfterAutoHandleStateEvent args) =>
         ApplyPartMarkings(uid, component);
-    }
     private void OnPartAttachedToBody(EntityUid uid, BodyComponent component, ref BodyPartAttachedEvent args)
     {
         if (!TryComp(args.Part, out BodyPartAppearanceComponent? partAppearance)
@@ -174,9 +172,7 @@ public partial class SharedBodySystem
         {
             _humanoid.SetLayerVisibility(target, visualLayer, true, true, bodyAppearance);
             foreach (var marking in markingList)
-            {
                 _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, false, true, bodyAppearance);
-            }
         }
         Dirty(target, bodyAppearance);
     }
@@ -187,9 +183,7 @@ public partial class SharedBodySystem
             return;
 
         foreach (var (visualLayer, markingList) in component.Markings)
-        {
             _humanoid.SetLayerVisibility(entity, visualLayer, false, true, bodyAppearance);
-        }
         RemoveBodyMarkings(entity, component, bodyAppearance);
     }
 
