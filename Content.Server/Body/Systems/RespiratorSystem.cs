@@ -72,7 +72,7 @@ public sealed class RespiratorSystem : EntitySystem
 
             UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
 
-            if (!_mobState.IsIncapacitated(uid) || HasComp<DebrainedComponent>(uid)) // Shitmed: cannot breathe in crit or when no brain.
+            if (!_mobState.IsIncapacitated(uid) || HasComp<DebrainedComponent>(uid)) // cannot breathe in crit or when no brain.
             {
                 switch (respirator.Status)
                 {

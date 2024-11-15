@@ -147,11 +147,9 @@ public sealed class HealingSystem : EntitySystem
             return false;
 
         foreach (var part in _bodySystem.GetBodyChildren(target, body))
-        {
             if (TryComp<DamageableComponent>(part.Id, out var damageable)
                 && damageable.TotalDamage > part.Component.MinIntegrity)
                 return true;
-        }
         return false;
     }
 

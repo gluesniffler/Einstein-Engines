@@ -1,9 +1,4 @@
-using Robust.Shared.GameStates;
+namespace Content.Client.Body.Components;
 
-namespace Content.Client.Body.Components
-{
-    [RegisterComponent]
-    public sealed partial class StomachComponent : Component
-    {
-    }
-}
+[RegisterComponent]
+public sealed partial class StomachComponent : Component { }

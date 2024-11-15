@@ -45,14 +45,13 @@ public sealed class TargetingUIController : UIController, IOnStateEntered<Gamepl
     public void AddTargetingControl(TargetingComponent component)
     {
         _targetingComponent = component;
+        if (TargetingControl is null)
+            return;
 
-        if (TargetingControl != null)
-        {
-            TargetingControl.SetTargetDollVisible(_targetingComponent != null);
+        TargetingControl.SetTargetDollVisible(_targetingComponent != null);
 
-            if (_targetingComponent != null)
-                TargetingControl.SetBodyPartsVisible(_targetingComponent.Target);
-        }
+        if (_targetingComponent != null)
+            TargetingControl.SetBodyPartsVisible(_targetingComponent.Target);
 
     }
 
